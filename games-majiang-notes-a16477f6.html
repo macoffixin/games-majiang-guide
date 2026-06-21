@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麻将游戏 · 一种日常的牌局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f8f6;
+      color: #2d2a26;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      padding: 2.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #1f1d1a;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #5b5650;
+      max-width: 580px;
+    }
+
+    .hero .sub a {
+      color: #4b7a5c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      font-weight: 400;
+    }
+
+    .hero .sub a:hover {
+      color: #315a3f;
+    }
+
+    /* 通用章节 */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 450;
+      color: #1f1d1a;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #3d3934;
+    }
+
+    .muted {
+      color: #6b655e;
+      font-size: 0.95rem;
+    }
+
+    /* 特点列表（无符号） */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .feature-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #e7e3de;
+      display: flex;
+      gap: 0.8rem;
+      align-items: baseline;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list .marker {
+      color: #6c8a72;
+      flex-shrink: 0;
+    }
+
+    /* 说明区 用卡片 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #eae6e0;
+      padding: 1.2rem 1.4rem;
+      border-radius: 12px;
+      transition: box-shadow 0.15s;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 460;
+      margin-bottom: 0.3rem;
+      color: #2b2a27;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: #4f4b45;
+    }
+
+    /* faq 摘要 */
+    .faq-item {
+      margin-bottom: 1rem;
+      border-left: 3px solid #d6d0c8;
+      padding-left: 1rem;
+    }
+
+    .faq-item .q {
+      font-weight: 450;
+      margin-bottom: 0.2rem;
+      color: #302d28;
+    }
+
+    .faq-item .a {
+      font-size: 0.95rem;
+      color: #5d5850;
+    }
+
+    /* 底部 */
+    .footer-note {
+      border-top: 1px solid #e2ddd6;
+      padding-top: 2rem;
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #756e65;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .footer-note a {
+      color: #4b7a5c;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.8rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .card {
+        padding: 1rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero 区 -->
+    <div class="hero">
+      <h1>麻将游戏<br>牌桌边的日常对话</h1>
+      <div class="sub">
+        四个人，一桌牌，手气与判断交替。<br>
+        对很多人来说，麻将不只是游戏，更是一种共同语言。在 <a href="https://games-majiang.com">麻将游戏</a> 里，这种语言被重新整理，保留节奏，去掉噪音。
+      </div>
+    </div>
+
+    <!-- 优势区 用无编号列表 -->
+    <section>
+      <h2>比起规则，更在意牌感</h2>
+      <ul class="feature-list">
+        <li><span class="marker">→</span> 清晰的回合流程，没有冗余动画，每一手都落在牌面上。</li>
+        <li><span class="marker">→</span> 对局节奏可以自己掌控——思考、碰杠、听牌，不被打断。</li>
+        <li><span class="marker">→</span> 界面克制，信息密度刚好：手牌、河牌、剩余枚数，一目了然。</li>
+        <li><span class="marker">→</span> 无强制引导，也无弹窗干扰；更像一张真实的牌桌。</li>
+      </ul>
+      <p class="muted">你喜欢的是哪种麻将？规则可以调，但牌桌上的气氛很难复制。这里试着靠近那种气氛。</p>
+    </section>
+
+    <!-- 说明区 卡片式 -->
+    <section>
+      <h2>不只是麻将</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>适合一个人，也适合一桌人</h3>
+          <p>你可以独自练习算牌、熟悉番型；也可以约上几个朋友，各自面对屏幕，语音也好、沉默也好，牌会替你们说话。</p>
+        </div>
+        <div class="card">
+          <h3>规则之外还有习惯</h3>
+          <p>有人喜欢快节奏的“血战到底”，有人习惯带花牌的国标。在一个地方兼容多种规则并不容易，但值得试试。</p>
+        </div>
+        <div class="card">
+          <h3>不靠运气，也不只靠运气</h3>
+          <p>麻将的魅力在于：手气是底色，判断是笔触。什么时候拆搭、什么时候弃胡，每一局都是一次微小的决策练习。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+      <h2>一些常见疑问</h2>
+      <div class="faq-item">
+        <div class="q">一定要注册才能玩吗？</div>
+        <div class="a">目前可以直接进入牌局，不需要账号。部分功能（如记录战绩）可能会在后续更新中提供。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">支持哪些地方的规则？</div>
+        <div class="a">以经典国标为基础，同时加入了川麻、广东牌的部分常见规则。如果你习惯的玩法不在列表里，可以通过自定义房间调整部分参数。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">牌局中途可以离开吗？</div>
+        <div class="a">建议打完一圈。如果临时有事，系统会由机器人代打（水平普通，但至少不会乱出牌）。</div>
+      </div>
+      <p class="muted" style="margin-top: 1.2rem;">更多细节可以在站点内查看，或者直接开一局体验。</p>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-note">
+      <span>© 牌桌边 · 2025</span>
+      <span>关于站点 · <a href="https://games-majiang.com">麻将游戏</a></span>
+    </div>
+  </div>
+</body>
+</html>
