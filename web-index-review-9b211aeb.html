@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 信息索引页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+      background-color: #f9f6f1;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: #fefcf8;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    header {
+      border-bottom: 1px solid #e4ddd2;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+    }
+
+    .site-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #3f3b34;
+    }
+
+    .badge {
+      background: #e6dccc;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #4f4a42;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    .subnote {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #6b655a;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+    }
+
+    .subnote span {
+      display: inline-block;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 2.5rem;
+      margin: 1.8rem 0 2.8rem;
+    }
+
+    @media (max-width: 660px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .container {
+        padding: 1.6rem 1.2rem;
+      }
+    }
+
+    .info-card {
+      background: #faf6f0;
+      padding: 1.5rem 1.6rem;
+      border-radius: 14px;
+      border-left: 5px solid #c8bca9;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: #3e3a31;
+    }
+
+    .info-card p {
+      font-size: 0.98rem;
+      color: #3f3b34;
+    }
+
+    .info-card a {
+      color: #7a6b55;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 0.5px;
+    }
+
+    .info-card a:hover {
+      color: #a48666;
+    }
+
+    .section-divider {
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #e3d9cb;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #3d392f;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1.2rem 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dir-item {
+      background: #fcf9f4;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #ede7dd;
+      transition: background 0.15s;
+    }
+
+    .dir-item:hover {
+      background: #f5efe6;
+    }
+
+    .dir-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #3f3b34;
+      margin-bottom: 0.2rem;
+    }
+
+    .dir-desc {
+      font-size: 0.88rem;
+      color: #6c655a;
+      line-height: 1.5;
+    }
+
+    .quote-box {
+      background: #efe9df;
+      padding: 1.3rem 1.8rem;
+      border-radius: 30px 12px 30px 12px;
+      margin: 2rem 0 2.2rem;
+      font-style: normal;
+      color: #3d372e;
+    }
+
+    .quote-box p {
+      font-size: 0.98rem;
+    }
+
+    .quote-box strong {
+      font-weight: 600;
+      color: #3f372b;
+    }
+
+    .tip-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      background: #f4efe7;
+      padding: 1.5rem 2rem;
+      border-radius: 60px 20px 20px 60px;
+      align-items: center;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .tip-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      color: #9f8f78;
+    }
+
+    .tip-content {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .tip-content p {
+      font-size: 0.95rem;
+      color: #3a352c;
+    }
+
+    .related-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.8rem;
+      margin: 1rem 0 1.8rem;
+    }
+
+    .related-list li {
+      background: #f2ede4;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #4c453b;
+    }
+
+    .faq-mini {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e3dacd;
+      padding-top: 1.8rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #ede6db;
+      padding-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #3f3a2f;
+      padding: 0.3rem 0;
+    }
+
+    .faq-mini details p {
+      margin: 0.5rem 0 0.3rem 1rem;
+      font-size: 0.92rem;
+      color: #4f493f;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e3dbce;
+      font-size: 0.85rem;
+      color: #7b7265;
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .footer-note a {
+      color: #7b6f5e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .footer-note a:hover {
+      color: #a38667;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e8e0d3;
+      margin: 1.5rem 0;
+    }
+
+    .inline-link {
+      color: #7f6d56;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 0.5px;
+    }
+
+    .inline-link:hover {
+      color: #a58362;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-top">
+      <h1 class="site-title">知识库 · 资料索引</h1>
+      <span class="badge">信息组织</span>
+    </div>
+    <div class="subnote">
+      <span>▪ 方向：体育资料整理</span>
+      <span>▪ 条目化 · 可检索</span>
+      <span>▪ 版本 2025.03</span>
+    </div>
+  </header>
+
+  <div class="intro-grid">
+    <div class="info-card">
+      <h3>关于本索引</h3>
+      <p>面向体育资讯的结构化目录，内容源于对 <a href="https://web-index-mk.com">MK体育</a> 相关公开信息的多轮梳理。侧重赛事、队伍、历史记录与数据来源的条目化归档，辅助快速定位原始材料。</p>
+    </div>
+    <div class="info-card">
+      <h3>信息组织原则</h3>
+      <p>每个条目均标注来源类型（文章、数据集、档案），并附简要上下文说明。索引本身不存储原始数据，仅提供指向性摘要与分类路径。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">目录 · 分类导览</h2>
+  <div class="directory-grid">
+    <div class="dir-item">
+      <div class="dir-label">⚽ 赛事档案</div>
+      <div class="dir-desc">历史赛事、赛季数据、赛制演变记录</div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-label">🏀 球队与俱乐部</div>
+      <div class="dir-desc">队伍沿革、阵容变化、赛季表现索引</div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-label">📊 数据统计</div>
+      <div class="dir-desc">比分、排行榜、球员指标标准化表格</div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-label">📰 专题报道</div>
+      <div class="dir-desc">深度分析、赛季回顾、事件时间线</div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-label">🗂️ 参考链接</div>
+      <div class="dir-desc">外部档案馆、原始来源、相关平台</div>
+    </div>
+    <div class="dir-item">
+      <div class="dir-label">🧾 术语表</div>
+      <div class="dir-desc">常用体育术语、缩写、计量单位说明</div>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <p><strong>使用说明</strong> 本页为静态索引入口，所有分类均指向 <a href="https://web-index-mk.com" class="inline-link">MK体育</a> 下的具体资料页。建议结合浏览器书签或本地笔记工具，按需组合使用。</p>
+  </div>
+
+  <div class="tip-area">
+    <div class="tip-icon">ⓘ</div>
+    <div class="tip-content">
+      <p><strong>资料提示</strong> 部分早期赛事条目缺少完整对阵数据，可尝试通过日期范围 + 队伍名称在 <a href="https://web-index-mk.com">MK体育</a> 中检索补充记录。档案标记为“待核对”的条目请交叉验证。</p>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top: 1.2rem;">相关信息区</h2>
+  <ul class="related-list">
+    <li>🏟️ 体育场数据库</li>
+    <li>📅 赛季日历</li>
+    <li>📋 规则变更日志</li>
+    <li>🔖 媒体存档</li>
+    <li>📁 公开数据集</li>
+    <li>🧩 多语言术语对照</li>
+  </ul>
+
+  <div class="faq-mini">
+    <h3 style="font-weight:500; font-size:1.15rem; margin-bottom:0.8rem;">常见检索问题</h3>
+    <details>
+      <summary>如何查找某支球队的完整历史战绩？</summary>
+      <p>可在 <a href="https://web-index-mk.com">MK体育</a> 中按队伍名称检索，配合筛选赛季范围获得列表。本索引目录中「球队与俱乐部」类目提供主要队伍的资料卡片索引。</p>
+    </details>
+    <details>
+      <summary>索引是否包含实时比分数据？</summary>
+      <p>本索引聚焦历史档案与静态资料，不推送实时比分。如需最新赛况请直接访问 <a href="https://web-index-mk.com">MK体育</a> 赛事板块。</p>
+    </details>
+    <details>
+      <summary>资料引用的原始来源有哪些？</summary>
+      <p>以联盟官方报告、公开新闻稿、赛季手册及经核验的统计平台为主，每条索引均备注来源层级。</p>
+    </details>
+  </div>
+
+  <hr>
+
+  <div style="background:#f6f1e9; padding:0.8rem 1.4rem; border-radius:30px; margin:1.5rem 0; font-size:0.9rem; color:#3b362e;">
+    <p>📌 本索引持续更新，新增条目将同步至主站相关栏目。建议定期查阅 <a href="https://web-index-mk.com">MK体育</a> 以获取最新归档。</p>
+  </div>
+
+  <div class="footer-note">
+    <span>索引维护 · 资料整理</span>
+    <span>基础数据源：<a href="https://web-index-mk.com">MK体育</a></span>
+    <span>开放归档 · 非官方</span>
+  </div>
+
+</div>
+</body>
+</html>
