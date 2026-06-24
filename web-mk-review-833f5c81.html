@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f8fa;
+            color: #1e2c31;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 920px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 40, 50, 0.06);
+            padding: 2.5rem 2rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+
+        /* 开篇短句 */
+        .hero-tag {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1d7a8c;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            border-left: 3px solid #2b9eb0;
+            padding-left: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0.5rem 0 1.8rem 0;
+            color: #0d2c33;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title strong {
+            font-weight: 500;
+            color: #16788b;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            font-size: 1.1rem;
+            color: #2b4148;
+            background: #eaf3f6;
+            padding: 1.5rem 2rem;
+            border-radius: 24px;
+            margin-bottom: 2.8rem;
+            border: 1px solid #cde2e8;
+            box-shadow: 0 2px 6px rgba(33, 110, 120, 0.04);
+        }
+
+        .intro-text a {
+            color: #147588;
+            text-decoration: none;
+            border-bottom: 1px solid #9fcbd4;
+            font-weight: 500;
+            transition: border-color 0.15s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #0a4f5e;
+        }
+
+        /* 网格卡片 —— 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.2rem 0 2.8rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #d7e6eb;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem;
+            transition: all 0.15s;
+            box-shadow: 0 2px 8px rgba(0, 40, 50, 0.02);
+        }
+
+        .feature-card:hover {
+            border-color: #86c0cd;
+            box-shadow: 0 6px 16px rgba(26, 124, 140, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .feature-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+            display: inline-block;
+            background: #def0f5;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 14px;
+            color: #147588;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin: 0.5rem 0 0.25rem 0;
+            color: #0d3039;
+        }
+
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #3b5a63;
+            line-height: 1.5;
+        }
+
+        /* 温和结尾 + 提醒风格 */
+        .gentle-footer {
+            background: #e2f0f4;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 2rem 2rem;
+            margin-top: 1.8rem;
+            border: 1px solid #b7d4dd;
+        }
+
+        .gentle-footer h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #0a3f4a;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gentle-footer h2::before {
+            content: "·";
+            font-weight: 700;
+            color: #2b9eb0;
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .gentle-footer p {
+            color: #1d414b;
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        .gentle-footer a {
+            color: #0d6475;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #81b7c4;
+            transition: border-color 0.1s;
+        }
+
+        .gentle-footer a:hover {
+            border-bottom-color: #0a4a58;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #3e6874;
+            margin-top: 1rem;
+            border-top: 1px solid #b9d3db;
+            padding-top: 1rem;
+            opacity: 0.85;
+        }
+
+        .faq-note {
+            background: #f3fafd;
+            border-radius: 16px;
+            padding: 1rem 1.4rem;
+            margin: 1.2rem 0 0.4rem 0;
+            border-left: 4px solid #2b9eb0;
+            font-size: 0.92rem;
+            color: #19434e;
+        }
+
+        .faq-note strong {
+            font-weight: 500;
+            color: #0c5f70;
+        }
+
+        /* 辅助 */
+        hr {
+            border: none;
+            border-top: 1px solid #d3e4e9;
+            margin: 2rem 0 1rem 0;
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .intro-text {
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 开场短句 -->
+        <div class="hero-tag">简明指南 · 提醒有序</div>
+        <h1 class="hero-title">了解 <strong>MK体育</strong>，从一处入口开始</h1>
+
+        <!-- 承接段落（自然嵌入链接） -->
+        <div class="intro-text">
+            如果你正在寻找关于体育内容的一种沉稳选择，<a href="https://web-mk.com">MK体育</a> 提供了一个不喧哗的起点。不需要复杂操作，也不需要反复判断信息真伪——只需保持基本的浏览习惯，你就能找到自己需要的部分。下面列出几个值得留意的特点，它们不算新奇，但足够实在。
+        </div>
+
+        <!-- 特点列表（网格卡片） -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon">📋</div>
+                <h3>结构简明</h3>
+                <p>导航路径直接，没有多余跳转。分类清晰，适合首次接触的人快速熟悉布局。</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔔</div>
+                <h3>更新克制</h3>
+                <p>通知与内容更新保持适度频率，减少信息过载。你可以按自己的节奏阅读或浏览。</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🧭</div>
+                <h3>访问提醒</h3>
+                <p>建议从稳定网络环境进入，避免使用来源不明的入口。直接使用主域名即可。</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔄</div>
+                <h3>界面一致</h3>
+                <p>无论通过手机还是桌面访问，版式保持统一，不会出现突然的元素堆叠或错位。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾 + 场景/FAQ混合 -->
+        <div class="gentle-footer">
+            <h2>一些温和提醒</h2>
+            <p>你可能会在浏览时遇到一些不熟悉的术语或模块。别着急，大多数可以通过页面自身的导航来理解。如果某个部分让你感到疑惑，不妨先退回到首页，重新确认分类。</p>
+
+            <div class="faq-note">
+                <strong>常见疑问摘要：</strong> 是否需要在访问前做特殊设置？通常不需要。保持浏览器为常用版本，关闭无关的插件或代理，就能正常使用 <a href="https://web-mk.com">MK体育</a> 提供的内容。
+            </div>
+
+            <p>另外，如果你习惯使用移动设备阅读，页面针对小屏幕做了基本适配。卡片间距会适当压缩，但可读性不会打折。</p>
+
+            <div class="small-note">
+                以上内容仅作为使用前的背景参考。具体功能与时效信息，请以实际站点为准。
+            </div>
+        </div>
+
+        <!-- 极简额外行（可忽略，但保持平衡） -->
+        <hr>
+        <div style="font-size:0.8rem; color:#6c8e98; text-align:center; margin-top:0.8rem; opacity:0.7;">
+            · 保持简单 · 按需阅读 ·
+        </div>
+    </div>
+</body>
+</html>
